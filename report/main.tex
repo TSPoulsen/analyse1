@@ -21,11 +21,12 @@
 \newcommand{\mN}{\m{N}}
 
 \newcommand{\abs}[1]{\left| #1\right|}
-\newcommand{\pare}[1]{\left( #1\right)}
+\newcommand{\lr}[1]{\left( #1\right)}
 \newcommand{\bigpare}[1]{\bigg( #1\bigg)}
 \newcommand{\cbrac}[1]{\left\{ #1\right\}}
 \newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
 \newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\set}[2]{\left\{ #1 \hspace{0.15cm} \textbf{\textbar}  \hspace{0.15cm} #2 \right\} }
 
 
 % 
@@ -70,12 +71,62 @@ For $c \in \mC$ med $|c| < \frac{1}{2}$ kan man se at
 $|c\cdot z| < 1$ og da vi ved at for $x \in \mR$ med $|x| < 1$ har vi at $x^n$ konvergerer mod $0$, altså vil
 vil $|c \cdot z|$ konvergere mod $0$ og derfor vil $c \cdot z$ også konvergere mod $0$.
 
+I konklusion vil det gælde for et hvert $ c \in K_1 := \set{w \in \mC}{|w| < \frac{1}{2} \lor w = \frac{1}{2}e^{i\frac{5}{3}\pi}}$
+
+\subsection*{c)}
+Da lemma 1.65 siger at enhver delfølge af en konvergent følge vil også være konvergent,
+kan vi bruge vores resultat fra delopgave c) til at sige at for alle $c \in K_1$
+vil alle delfølger af $\{ a_n \}_{n \in \mN}$ konvergere. Jævnfør lemma 1.30 kan 
+vi også sige at for et hvert $c \in \mC$ hvor $|c| = \frac{1}{2}$ vil der også være mindst
+et fortætnigspunkt, og lemma 1.63 siger at for hvert fortætnigspunkt for en følge
+vil der være en delfølge der konvergerer mod det fortætnigspunkt. Altså vil 
+der for et hvert $c \in K_2 := \set{w \in \mC}{|w| \le \frac{1}{2}}$ være en delfølge som konvergerer. 
+Derudover kan vi også konkludere at for $|c| > \frac{1}{2}$ vil følgen være ubegrænset og derfor divergent, eftersom
+$|c \cdot z| = |c| \cdot |z| > \frac{1}{2} \cdot 2 = 1$, altså vil normen af følgens elementer vokse og den er derfor ubegrænset.
+Eftersom der generelt vil gælde at $|a_n| < |a_{n+i}|$ for $i \in \mN$ vil enhver delfølge også være voksende og ubegrænset.
+Så vi kan konkludere at hvis $|c| > \frac{1}{2}$ vil der ikke være nogen delfølge der konvergerer, og $K_2$ vil være mængden af alle komplekse tal
+hvorom der findes en delfølge af $\{ a_n \}_{n \in \mN}$ der konvergerer.
+
+
 \section*{Opgave 2}
 \subsection*{a)}
+Hvis vi ser på $a_n = \frac{1}{2}(n + \frac{8}{n})$ som funktionen $f: (0, \infty) \to \mR$ givet ved $f(x) = \frac{1}{2}(x + \frac{8}{x})$, 
+kan vi hurtigt se af denne funktion er differentiabel og at $f'(x) = \frac{1}{2}(1 - \frac{8}{x^2})$. 
+Vi kan så lave en ekstremums undersøgelse af $f$ for at finde hvor den er mindst, hvis den er nedad begrænset.
+Jeg løser $f'(x) = 0$ og får
+\begin{align*}
+    \frac{1}{2}(1 - \frac{8}{x^2}) = 0 \iff 1 - \frac{8}{x^2} = 0 \\
+    \iff 1 = \frac{8}{x^2} \iff x^2 = 8 \iff x = \sqrt{8}
+\end{align*}
+og da $2 = \sqrt{4} < \sqrt{8} < \sqrt{9} = 3$, kan vi finde hældningen på begge sider af ekstremumspunktet $x = \sqrt{8}$.
+For $x = 2$ vil $f'(x) = -\frac{3}{2} < 0$ og for $x = 3$ vil $f'(x) = \frac{1}{18} > 0$, altså antager $f$ et globals minimum i $x = \sqrt{8}$.
+Da vi ikke kan evaluere $a_n$ i $\sqrt{8}$ må den mindste værdi være for enten $n = 2$ eller $n = 3$, og da $a_2 = 4$ og $a_3 = \frac{11}{3}$,
+kan vi konkludere at $a_n$ er mindst for $n=2$.
+
+
+\subsection*{b)}
+Det kan ses at følgen $\{a_n - \floor{a_n} \}_{n \in \mN}$ vil bestå af elementer i intervallet $[0, 1)$ og kigger man på de lige indekser (større end 4),
+altså delfølgen af $n_k = 2(k+2)$ for $k \in \mN$ vil man se at elementerne i delfølgen er givet ved 
+\[
+    a_{n_k} - \floor{a_{n_k}} = \frac{1}{2} (2(k+2) + \frac{8}{2(k+2)}) - \floor{\frac{1}{2} (2(k+2) + \frac{8}{2(k+2)})}= \frac{2}{k+2} - \floor{\frac{2}{k+2}} = \frac{2}{k+2} 
+\]
+Vi kan bruge sætning 1.39 til at se at delfølgen her vil konvergere mod grænseværdien for produktet af følgerne $\{2\}_{k \in \mN}$ og $\{ \frac{1}{k+2} \}_{k \in \mN}$
+hvilket har $2$ og $0$ som grænseværdier, så delfølgen konvergerer mod $0$.
+
+\subsection*{c)}
+Hvis jeg kigger på delfølgen af alle de ulige indekser (større end 8), vil jeg se at $n_k = 2(k+3)+1 $ for $k \in \mN$, og at
+\begin{align*}
+    a_{n_k} - \floor{a_{n_k}} &= \frac{1}{2} (2(k+3) + 1 + \frac{8}{2(k+3)+1}) - \floor{\frac{1}{2} (2(k+3) + 1 + \frac{8}{2(k+3)+1})}  \\
+    &= \frac{1}{2} + \frac{4}{2(k+3)+1} - \floor{\frac{1}{2} + \frac{4}{2(k+3)+1}} = \frac{1}{2} + \frac{4}{2k+7} 
+\end{align*}
+hvilket kan ses eftersom $ 0 < \frac{4}{2(k+3)+1} < \frac{1}{2}$.
+Igen kan vi bruge sætning 1.39 til at genkende dette som summen af to konvergente følger, nemlig $\{ \frac{1}{2} \}_{k \in \mN}$ og 
+$\{ \frac{4}{2k+7} \}_{k \in \mN}$ som hver især har grænseværdierne $\frac{1}{2}$ og $0$, derfor vil denne delfølge konvergere mod $\frac{1}{2}$.
+Vi kan nu bruge lemma 1.63 til at konkludere at der må være minimum 2 fortætnigspunkter for $\{ a_n - \floor{a_n} \}_{n \in \mN}$ og derfor kan vi sige at
+følgen er divergent da lemma 1.35 siger at en konvergent følge vil have et entydigt fortætningspunkt.
 
 
 \section*{Opgave 3}
 \subsection*{a)}
-\maketitle
 
 \end{document}

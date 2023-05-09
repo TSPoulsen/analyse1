@@ -12,6 +12,19 @@
 \usepackage{enumitem}
     \setenumerate[1]{label={\alph*)}}
 
+% Nice header and footer
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+
+\pagestyle{fancy}
+% header rigth 
+\fancyhead[l]{Tim Sehested Poulsen}
+\fancyhead[r]{tpw705}
+%foot center
+\fancyfoot[c]{Side \thepage af \ztotpages}
+
+\usepackage[skip=1em]{parskip}
+
 % Custom Commands
 \newcommand{\m}[1]{\mathbb{#1}}
 \newcommand{\mC}{\m{C}}
@@ -34,6 +47,7 @@
 \author{Tim Sehested Poulsen}
 
 \begin{document}
+\textbf{OBS: Alle referencer til sætninger, lemmaer, osv. er fra bogen [CES]}
 \section*{Opgave 1}
 \subsection*{a)}
 Polarformen for et komplekst tal er givet ved $z = |z|e^{i\theta}$, hvor $\theta$ er argumentet for $z$.

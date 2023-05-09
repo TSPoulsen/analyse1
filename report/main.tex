@@ -37,41 +37,43 @@
 \section*{Opgave 1}
 \subsection*{a)}
 Polarformen for et komplekst tal er givet ved $z = |z|e^{i\theta}$, hvor $\theta$ er argumentet for $z$.
-Så i vores tilfælde svarer det til at $|z| = \sqrt{(-1)^2 + \sqrt{3}^2} = \sqrt{4}= 2$ og argumentet er det $\theta$ som løser
+Så i vores tilfælde svarer det til at $|z| = \sqrt{1^2 + (-\sqrt{3})^2} = \sqrt{4}= 2$ og argumentet er det $\theta$ som løser
 \begin{align*}
-\sin(\theta) &= \frac{\sqrt{3}}{|z|} = \frac{\sqrt{3}}{2} \\
+\sin(\theta) &= \frac{-\sqrt{3}}{|z|} = \frac{-\sqrt{3}}{2} \\
 \cos(\theta) &= \frac{1}{|z|} = \frac{1}{2} \\
 \end{align*}
-Det kan udregnes til at $\theta = \frac{\pi}{3}$. Altså er polarformen for $z= 2e^{i\frac{\pi}{3}}$.
-Vi kan nu udregne $z^2 = 2^2e^{i\frac{2\pi}{3}} = 4e^{i\frac{2\pi}{3}}$, og ligeledes
-$z^3 = 2^3e^{i\frac{3\pi}{3}} = 8 e^{i\pi} = -8$ samt
-$z^6 = 2^6e^{i\frac{6\pi}{3}} = 64 e^{2\pi} = 64$.
+Det kan udregnes til at $\theta = \frac{5\pi}{3}$. Altså er polarformen for $z= 2e^{i\frac{5\pi}{3}}$.
+Vi kan nu udregne 
+\begin{align*}
+    &z^2 = 2^2e^{i\frac{10\pi}{3}} = 4e^{i\frac{4\pi}{3}} \\
+    &z^3 = 2^3e^{i\frac{15\pi}{3}} = 8 e^{i\pi} = -8 \\
+    &z^6 = 2^6e^{i\frac{30\pi}{3}} = 64 e^{i 2\pi} = 64 \\
+\end{align*}
 \subsection*{b)}
-Vi kan se at $z^n$ vil være et reelt tal når argumentet er en multiplicetet af $pi$, og da argumentet for 
-$z^n$ er givet ved $n\frac{\pi}{3}$ vil det ske når $\frac{n}{3}$ er et heltal, altså for $n=0,3,6,9,\dots$. Altså 3 tabellen.
+Vi kan se at $z^n$ vil være et reelt tal når argumentet er en multiplicetet af $\pi$, og da argumentet for 
+$z^n$ er givet ved $n\frac{5\pi}{3}$ vil det ske når $\frac{5n}{3}$ er et heltal, altså for $n=0,3,6,9,\dots$. Altså 3 tabellen.
 
 \subsection*{c)}
-\Todo{Skriv denne pænt}
-Eftersom $|(c\cdot z)^n| = |c\cdot z|^n$ vil den absolutte værdi stige hvis $|c \cdot z| > 1$, altså hvis $|c| > \frac{1}{2}$, 
+Eftersom $|(c\cdot z)^n| = |c\cdot z|^n$ vil den absolutte værdi stige hvis $|c \cdot z| = |c| \cdot |z| > 1$, altså hvis $|c| > \frac{1}{2}$, 
 da vi ved at $|z| = 2$. Altså er følgen ubegrænset for $|c| > \frac{1}{2}$ og da den logiske kontraponering af lemma 1.37 siger at
 ubegrænsede følger er divergente, kan vi så konkludere at for $c \in \mC$ med $|c| > \frac{1}{2}$ er følgen divergent.
 For $|c| =\frac{1}{2}$ kan vi se at $|(c \cdot z)^n| = (\frac{1}{2} \cdot 2)^n = 1^n = 1$.
 
-Hvis vi så kigger på et $c = \frac{1}{2} e^{i\phi}$, hvor $\phi \in [ 0,2\pi )$ kan vi se at $(c \cdot z)^n = e^{n\cdot (\phi + \frac{\pi}{3})}$, hvor proposition 1.30 siger at
-hvis er $ \frac{\phi + \frac{\pi}{3}}{2\pi}$ er et rationelt tal, hvor den kan skrives som uforkortelig brøk
+Hvis vi så kigger på et $c = \frac{1}{2} e^{i\phi}$, hvor $\phi \in [ 0,2\pi )$ kan vi se at $(c \cdot z)^n = e^{n\cdot (\phi + \frac{5\pi}{3})}$, hvor proposition 1.30 siger at
+hvis er $ \frac{\phi + \frac{5\pi}{3}}{2\pi}$ er et rationelt tal, hvor den kan skrives som uforkortelig brøk
 $\frac{x}{2\pi} = \frac{p}{q}$ vil have $q$ fortætnigspunkter og hvis argumentet er irrationelt så vil den have uendeligt mange fortætnigspunkter.
-Da vi ved fra lemma 1.35 at en konvergent følge vil have et entydigt fortætnigspunkt så kan følgen ikke være konverkent hvis der er
-adskillige fortætnigspunkter. Så i dette tilfælde kan vi sige at følgen kun vil have et fortætnigspunkt hvis
-$\frac{\phi + \frac{\pi}{3}}{2\pi} = \frac{\phi}{2\pi} + \frac{1}{6}$ er et helttal. For et $\phi \in [0, 2\pi)$ kan det kun ske når 
-$\phi = \frac{5}{3}\pi$. Altså har jeg at hvis $|c| = \frac{1}{2}$ vil følgen kun have et fortætningspunkt hvis $c = \frac{1}{2}e^{i\frac{5\pi}{3}}$.
-Det kan nu let ses at $c \cdot z = \frac{1}{2}e^{i\frac{5}{3}\pi} \cdot 2 e^{i \frac{1}{3}\pi} = e^{i \frac{6}{3}\pi} = e^{i2\pi} = 1$.
+Da vi ved fra lemma 1.35 at en konvergent følge vil have et entydigt fortætnigspunkt så kan følgen ikke være konvergent hvis der er
+adskillige fortætnigspunkter. Så i dette tilfælde kan vi sige at følgen kun vil have \textit{et} fortætnigspunkt hvis
+$\frac{\phi + \frac{5\pi}{3}}{2\pi} = \frac{\phi}{2\pi} + \frac{5}{6}$ er et helttal. For et $\phi \in [0, 2\pi)$ kan det kun ske når 
+$\phi = \frac{1}{3}\pi$. Altså har jeg at hvis $|c| = \frac{1}{2}$ kan følgen kun have \textit{et} fortætningspunkt hvis $c = \frac{1}{2}e^{i\frac{\pi}{3}}$.
+Det kan nu ses at $c \cdot z = \frac{1}{2}e^{i\frac{\pi}{3}} \cdot 2 e^{i \frac{5}{3}\pi} = e^{i \frac{6}{3}\pi} = e^{i2\pi} = 1$.
 Altså vil $(c \cdot z)^n = 1^n = 1$ definere en konvergent følge med grænseværdi $1$.
 
 For $c \in \mC$ med $|c| < \frac{1}{2}$ kan man se at
 $|c\cdot z| < 1$ og da vi ved at for $x \in \mR$ med $|x| < 1$ har vi at $x^n$ konvergerer mod $0$, altså vil
-vil $|c \cdot z|$ konvergere mod $0$ og derfor vil $c \cdot z$ også konvergere mod $0$.
+vil $|c \cdot z|$ konvergere mod $0$ og den eneste måde det kan ske på er hvis $c \cdot z$ også konvergere mod $0$.
 
-I konklusion vil det gælde for et hvert $ c \in K_1 := \set{w \in \mC}{|w| < \frac{1}{2} \lor w = \frac{1}{2}e^{i\frac{5}{3}\pi}}$
+I konklusion kan vi altså sige at følge $\{ (c \cdot z)^n \}_{n \in \mN}$ vil konvergere for et hvert $ c \in K_1 := \set{w \in \mC}{|w| < \frac{1}{2} \lor w = \frac{1}{2}e^{i\frac{5}{3}\pi}}$
 
 \subsection*{c)}
 Da lemma 1.65 siger at enhver delfølge af en konvergent følge vil også være konvergent,
@@ -81,10 +83,11 @@ vi også sige at for et hvert $c \in \mC$ hvor $|c| = \frac{1}{2}$ vil der også
 et fortætnigspunkt, og lemma 1.63 siger at for hvert fortætnigspunkt for en følge
 vil der være en delfølge der konvergerer mod det fortætnigspunkt. Altså vil 
 der for et hvert $c \in K_2 := \set{w \in \mC}{|w| \le \frac{1}{2}}$ være en delfølge som konvergerer. 
-Derudover kan vi også konkludere at for $|c| > \frac{1}{2}$ vil følgen være ubegrænset og derfor divergent, eftersom
-$|c \cdot z| = |c| \cdot |z| > \frac{1}{2} \cdot 2 = 1$, altså vil normen af følgens elementer vokse og den er derfor ubegrænset.
-Eftersom der generelt vil gælde at $|a_n| < |a_{n+i}|$ for $i \in \mN$ vil enhver delfølge også være voksende og ubegrænset.
-Så vi kan konkludere at hvis $|c| > \frac{1}{2}$ vil der ikke være nogen delfølge der konvergerer, og $K_2$ vil være mængden af alle komplekse tal
+Og som tidligere argumenteret vil følgen være ubegrænset hvis $|c| > \frac{1}{2}$, 
+da kan vi også konkludere at enhver delfølge også vil være ubegrænset eftersom $|a_n| < |a_{n+i}|$ for $i \in \mN$.
+Så vi kan konkludere at hvis $|c| > \frac{1}{2}$ vil der ikke være nogen delfølge der konvergerer,
+da de alle er ubegrænsede,
+og $K_2$ vil være mængden af alle komplekse tal
 hvorom der findes en delfølge af $\{ a_n \}_{n \in \mN}$ der konvergerer.
 
 
@@ -96,12 +99,18 @@ Vi kan så lave en ekstremums undersøgelse af $f$ for at finde hvor den er mind
 Jeg løser $f'(x) = 0$ og får
 \begin{align*}
     \frac{1}{2}(1 - \frac{8}{x^2}) = 0 \iff 1 - \frac{8}{x^2} = 0 \\
-    \iff 1 = \frac{8}{x^2} \iff x^2 = 8 \iff x = \sqrt{8}
+    \iff 1 = \frac{8}{x^2} \iff x^2 = 8 \iff x = \pm \sqrt{8}
 \end{align*}
-og da $2 = \sqrt{4} < \sqrt{8} < \sqrt{9} = 3$, kan vi finde hældningen på begge sider af ekstremumspunktet $x = \sqrt{8}$.
-For $x = 2$ vil $f'(x) = -\frac{3}{2} < 0$ og for $x = 3$ vil $f'(x) = \frac{1}{18} > 0$, altså antager $f$ et globals minimum i $x = \sqrt{8}$.
-Da vi ikke kan evaluere $a_n$ i $\sqrt{8}$ må den mindste værdi være for enten $n = 2$ eller $n = 3$, og da $a_2 = 4$ og $a_3 = \frac{11}{3}$,
-kan vi konkludere at $a_n$ er mindst for $n=2$.
+og da $x > 0$ har vi at $x = \sqrt{8}$. Ydermere da $\sqrt{x}$ er en strengt voksende funktion, 
+kan vi bruge at $2 = \sqrt{4} < \sqrt{8} < \sqrt{9} = 3$, 
+og finde hældningen på begge sider af ekstremumspunktet $x = \sqrt{8}$.
+\begin{align*}
+    f'(2) = -\frac{1}{2} < 0 \\
+    f'(3) = \frac{1}{18} > 0
+\end{align*}
+altså antager $f$ et globalt minimum i $x = \sqrt{8}$.
+Da vi ikke kan evaluere $a_n$ for $n=\sqrt{8}$ må den mindste værdi være for enten $n = 2$ eller $n = 3$, og da $a_2 = 3$ og $a_3 = \frac{17}{6} < \frac{18}{6} = 3$,
+kan vi konkludere at $a_n$ er mindst for $n=3$.
 
 
 \subsection*{b)}
@@ -110,7 +119,7 @@ altså delfølgen af $n_k = 2(k+2)$ for $k \in \mN$ vil man se at elementerne i 
 \[
     a_{n_k} - \floor{a_{n_k}} = \frac{1}{2} (2(k+2) + \frac{8}{2(k+2)}) - \floor{\frac{1}{2} (2(k+2) + \frac{8}{2(k+2)})}= \frac{2}{k+2} - \floor{\frac{2}{k+2}} = \frac{2}{k+2} 
 \]
-Vi kan bruge sætning 1.39 til at se at delfølgen her vil konvergere mod grænseværdien for produktet af følgerne $\{2\}_{k \in \mN}$ og $\{ \frac{1}{k+2} \}_{k \in \mN}$
+Vi kan bruge sætning 1.39 til at se at delfølgen her vil konvergere mod grænseværdien for produktet af følgerne $\{2\}_{n \in \mN}$ og $\{ \frac{1}{n+2} \}_{n \in \mN}$
 hvilket har $2$ og $0$ som grænseværdier, så delfølgen konvergerer mod $0$.
 
 \subsection*{c)}
@@ -127,6 +136,74 @@ følgen er divergent da lemma 1.35 siger at en konvergent følge vil have et ent
 
 
 \section*{Opgave 3}
-\subsection*{a)}
+Vi kan omskrive udtrykket
+\[
+S_n = \sum_{n=1}^n \frac{1}{\sqrt{kn}} =
+ \sum_{n=1}^n \frac{1}{n} \cdot \frac{\sqrt{n}}{\sqrt{k}} =
+ \sum_{n=1}^n \frac{1}{n} \cdot \frac{1}{\sqrt{\frac{n}{n}}}
+\]
+Hvor kan genkende at for alle $1 \le k \le n$ vil vi have at $0 < \frac{k}{n} \le 1$, og
+vi kan derfor se at $S_n$ er en middelsum for integralet 
+$ \int_{0}^1 \frac{1}{\sqrt{t}} dt$. Derfor vil vi have at 
+\[
+    \lim_{n \to \infty} S_n = \int_{0}^1 \frac{1}{\sqrt{t}} dt 
+    = \left[ 2\sqrt{t} \right]_{0}^1 = 2
+\]
+Så vi kan konkludere at følgen er konvergent med grænseværdien $2$.
+
+\section*{Opgave 4}
+Jeg starter med at omskrive $a_n$ til
+\[
+    a_n = \log(n + \cos(n)) - \log(n) =
+    \log(\frac{n + \cos(n)}{n}) = \log(1 + \frac{\cos(n)}{n})
+\]
+Da $ 1 + \frac{\cos(n)}{n} \in (0, \infty)$ for alle $n \in \mN$ og da $\log$ er kontinuert i $(0, \infty)$ kan vi bruge sætning 1.45
+til at sige $ \lim_{n \to \infty} a_n = \log( \lim_{n \to \infty} (1 + \frac{\cos(n)}{n}))$, 
+hvis og kun hvis følgen
+$\{1 + \frac{\cos(n)}{n} \}_{n \in \mN}$ er konvergent. 
+
+Grundet sætning 1.39, behøver vi kun at kigge på følgen $\{ \frac{\cos(n)}{n}\}_{n \in \mN}$.
+Da $-1 \le \cos(n) \le 1$ for alle $n \in \mN$ vil vi have at $- \frac{1}{n} \le \frac{\cos(n)}{n} \le \frac{1}{n}$ for alle $n \in \mN$.
+Da $\lim_{n \to \infty} \frac{1}{n} = \lim_{n \to \infty} \frac{-1}{n} = 0$, kan vi konkludere at
+$\lim_{n \to \infty} \frac{\cos(n)}{n} = 0$ ud fra sætning 1.42.
+Altså har vi i konklusion at følgen $\{ a_n \}_{n \in \mN}$ er konvergent med grænseværdi $\lim_{n \to \infty} a_n =  \log( \lim_{n \to \infty} (1 + \frac{\cos(n)}{n})) = \log(1 + 0) = 0$.
+
+\section*{Opgave 5}
+Eftersom $a \cdot r = 1$ har vi altså at $a = r^{-1}$ og vi kan omskrive rækken til 
+\[
+    S = \sum_{n=0}^{\infty} a \cdot r^n 
+    = a + \sum_{n=1}^{\infty} r^{-1} \cdot r^n 
+    = a + \sum_{n=1}^{\infty} r^{n-1}
+    = a + \sum_{n=0}^{\infty} r^n
+\]
+Så herfra kan vi konkludere at $S$ vil konvergere hvis og kun hvis $\sum_{n=0}^{\infty} r^n$ konvergerer ud fra sætning 2.9\footnote{Måske mest ved brug af korollar 2.11}.
+Da vi kan genkende $\sum_{n=0}^{\infty} r^n$ som en geometrisk række, kan vi bruge sætning 2.4 til at sige at $\sum_{n=0}^{\infty} r^n$ konvergerer hvis og kun hvis $|r| < 1$. 
+Altså vil $S$ konvergere hvis og kun hvis $|r| < 1$.
+I disse tilfælde vil vi have at 
+\[
+    S = a + \frac{1}{1-r} = \frac{1}{r} + \frac{1}{1-r} 
+    = \frac{1}{r-r^2}
+\]
+for $0 < r < 1$ kan vi finde den mindste værdi af $S$ ved at finde ekstremumspunkterne for $S = \frac{1}{r-r^2}$,
+da dette kan ses som en differentiabel funktion i intervallet $(0, 1)$.
+Vi får at 
+\begin{align*}
+    &S' = \lr{\frac{1}{r - r^2}}' = -\frac{1}{(r - r^2)^2} \cdot (1 - 2r) = \frac{2r}{(r-r^2)^2} - \frac{1}{(r-r^2)^2} \\
+    &S' = 0 \\
+    &\iff \frac{2r}{(r-r^2)^2} - \frac{1}{(r-r^2)^2} = 0 \\ 
+    &\iff \frac{2r - 1}{(r-r^2)^2} = 0 \iff 2r - 1 = 0 \\
+    &\iff r = \frac{1}{2}
+\end{align*}
+Og evaluerer jeg $S'$ med $r=\frac{3}{4}$ og $r = \frac{1}{4}$ får jeg at
+\begin{align*}
+    -\frac{1}{\lr{\frac{1}{4} - \lr{\frac{1}{4}}^2}^2} \cdot (1 - 2\frac{1}{4}) = -\frac{128}{9} < 0 \\
+    -\frac{1}{\lr{\frac{3}{4} - \lr{\frac{3}{4}}^2}^2} \cdot (1 - 2\frac{3}{4}) = \frac{128}{9} > 0  
+\end{align*}
+Altså må $r=\frac{1}{2}$ være den værdi for som gør $S$ mindst. Hvilket er 
+\[
+    \frac{1}{\frac{1}{2} - \lr{\frac{1}{2}}^2} = \frac{1}{\frac{1}{4}} = 4
+\]
+
+
 
 \end{document}

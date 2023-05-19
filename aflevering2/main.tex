@@ -1,0 +1,100 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % to write æÆøØåÅ.
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym,mathtools,amsthm}
+\include{symbols.tex}
+\usepackage[danish]{babel}
+\usepackage{todo}
+\usepackage{import}
+\usepackage[margin=0.9in]{geometry} % Adjust margin
+    \setlength\parindent{6pt}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+    \setenumerate[1]{label={\alph*)}}
+
+% Nice header and footer
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+
+\pagestyle{fancy}
+% header rigth 
+\fancyhead[l]{Tim Sehested Poulsen}
+\fancyhead[r]{tpw705}
+%foot center
+\fancyfoot[c]{Side \thepage af \ztotpages}
+
+\usepackage[skip=1em]{parskip}
+
+% Custom Commands
+\newcommand{\m}[1]{\mathbb{#1}}
+\newcommand{\mC}{\m{C}}
+\newcommand{\mR}{\m{R}}
+\newcommand{\mQ}{\m{Q}}
+\newcommand{\mZ}{\m{Z}}
+\newcommand{\mN}{\m{N}}
+
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\lr}[1]{\left( #1\right)}
+\newcommand{\lrb}[1]{\left[ #1\right]}
+\newcommand{\bigpare}[1]{\bigg( #1\bigg)}
+\newcommand{\cbrac}[1]{\left\{ #1\right\}}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\set}[2]{\left\{ #1 \hspace{0.15cm} \textbf{\textbar}  \hspace{0.15cm} #2 \right\} }
+
+
+% 
+\title{Analyse 1 2022/23 - Hjemmeopgave 1}
+\author{Tim Sehested Poulsen}
+
+\begin{document}
+\textbf{OBS: Alle referencer til sætninger, lemmaer, osv. er fra bogen [CES]}
+\section*{Opgave 1}
+\subsection*{a)}
+Da $f(x) = \sin(\frac{1}{x})$ er en positiv, kontinuert og aftagende 
+funktion på intervallet $[1, \infty)$, kan vi bruge sætning 2.20 til at 
+konkludere om rækken $\sum_n=1^\infty \sin(\frac{1}{n})$ er konvergent eller divergent.
+Det gør vi ved at undersøge det uegentlige integrale $\int_1^\infty \sin(\frac{1}{x}) dx$. 
+Ved brug af sætningen for partiel integration\cite[sætning 5.35]{an0} får vi først
+\begin{align*}
+    \int_1^\infty \sin(\frac{1}{x}) dx &= \lim_{b \to \infty} \int_1^b \sin(\frac{1}{x}) dx \\
+    &= \lim_{b \to \infty} \lrb{\sin(\frac{1}{x})x}_1^{\infty} - \int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
+    &= \lim_{b \to 0} \frac{\sin(b)}{b} - \sin(1) - \lim_{b \to \infty}\int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
+\end{align*}
+Her kan vi bruge grænseværdien $\lim_{b \to 0} \frac{\sin(b)}{b} = 1$
+og sætningen for integration ved substition\cite[sætning 5.39]{an0} til at få
+\begin{align*}
+    &\lim_{b \to 0} \frac{\sin(b)}{b} - \sin(1) - \lim_{b \to \infty}\int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
+    &= 1 - \sin(1) -  \lim_{b \to \infty} \int_1^{\frac{1}{b}} \frac{\cos(u)}{u} du \\ 
+    &= 1 - \sin(1) +  \lim_{b \to \infty} \int_{\frac{1}{b}}^1 \frac{\cos(u)}{u} du \\
+\end{align*}
+Herfra kan vi se at det originale integrale $\int_1^{\infty} \sin(\frac{1}{x})$ 
+er endeligt hvis og kun hvis
+$\int_0^1{\frac{\cos(x)}{x}}$ er endeligt. Vi undersøger nu denne grænseværdi
+\begin{align*}
+&\lim_{b \to \infty} \int_{\frac{1}{b}}^1 \frac{\cos(u)}{u} du \\
+&\ge \lim_{b \to \infty} \int_{\frac{1}{b}}^1 \frac{\cos(1)}{u} du \\
+&= \lim_{b \to \infty} \cos(1) \lrb{\log(u)}_{\frac{1}{b}}^1 \\
+&= \cos(1) \lim_{b \to \infty} \log(1) - \log(\frac{1}{b}) = \infty \\
+\end{align*}
+Altså kan vi konkludere at $\int_1^{\infty} \sin(\frac{1}{x})$ er divergent, og dermed
+er rækken $\sum_{n=1}^{\infty} \sin(\frac{1}{n})$ divergent.
+
+
+\subsection*{b)}
+
+\subsection*{c)}
+
+\section*{Opgave 2}
+
+\section*{Opgave 3}
+
+\section*{Opgave 4}
+
+\section*{Opgave 5}
+
+%bibliography
+\bibliographystyle{plain}
+\bibliography{refs.bib}
+
+\end{document}

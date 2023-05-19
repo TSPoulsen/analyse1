@@ -36,6 +36,7 @@
 \newcommand{\abs}[1]{\left| #1\right|}
 \newcommand{\lr}[1]{\left( #1\right)}
 \newcommand{\lrb}[1]{\left[ #1\right]}
+\newcommand{\lrc}[1]{\left\{ #1\right\}}
 \newcommand{\bigpare}[1]{\bigg( #1\bigg)}
 \newcommand{\cbrac}[1]{\left\{ #1\right\}}
 \newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
@@ -82,16 +83,115 @@ er rækken $\sum_{n=1}^{\infty} \sin(\frac{1}{n})$ divergent.
 
 
 \subsection*{b)}
+Vi kan kigge på rækken som en differens af to rækker 
+hvor den ene består af $\sum_{n=2}^{\infty} \frac{1}{n^2}$ 
+og den anden består af $\sum_{n=2}^{\infty} \frac{1}{n\log(n)}$. 
+Fra eksempel 2.23\cite{an1} kan vi genkende den først som en konvergent p-række, 
+og med brug af sætning 2.9\cite{an1} kan vi se at rækken vi er interesseret i vil
+divergere/konvergere hvis rækken $-\sum_{n=2}^{\infty} - \frac{1}{n\log(n)}$ divergerer/konvergerer.
+Vi undersøger derfor denne række ved brug af integraltesten\footnote{
+    Sætningen siger specifikt at den kan bruges for rækker som starter i $n=1$,
+    men der er intet i beviset der ikke kan generaliseres til en vilkårlig start værdi} 
+\cite[sætning 2.20]{an1}, da
+$f(x)=\frac{1}{x\log(x)}$ er en positiv, kontinuert og aftagende funktion på intervallet $[2, \infty)$.
+Vi får det uegentlige integrale ved brug af integration ved substition \cite[sætning 5.39]{an0} til at være
+\begin{align*}
+   &\lim_{b \to \infty} \int_{2}^{b} \frac{1}{x\log(x)} dx \\
+   &=\lim_{b \to \infty} \int_{\log(2)}^{\log(b)} \frac{1}{x\cdot u}x du \\
+   &=\lim_{b \to \infty} \int_{\log(2)}^{\log(b)} \frac{1}{u} du \\
+   &=\lim_{b \to \infty} \lrb{\log(u)}_{\log(2)}^{\log(b)} \\
+   &=\lim_{b \to \infty} \log\log(b) - \log\log(2)
+   =\infty
+\end{align*}
+Hvorfra vi kan konkludere at dette integrale divergerer, og dermed divergerer rækken 
+$\sum_{n=2}^{\infty}\frac{1}{n^2} - \frac{1}{n\log{n}}$.
 
 \subsection*{c)}
+Ved at forkorte udtrykket i den absolutte række kan vi se at
+\begin{align*}
+    &\sum_{n=1}^{\infty} \abs{(-1)^n \frac{(n+c)^2 - (n-c)^2}{n}} \\
+    &=\sum_{n=1}^{\infty} \abs{\frac{(n+c)^2 - (n-c)^2}{n}} \\
+    &=\sum_{n=1}^{\infty} \abs{\frac{n^2+c^2 + 2nc - n^2 - c^2 + 2nc}{n}} \\
+    &=\sum_{n=1}^{\infty} \abs{\frac{4nc}{n}} \\
+    &=\sum_{n=1}^{\infty} \abs{4c}
+\end{align*}
+Hvorfra vi kan se at den eneste tidspunkt denne række vil konvergere er for $c=0$.
 
 \section*{Opgave 2}
+Da rækken er alternerende kan vi bruge Leibniz' test \cite[sætning 2.30]{an1} til at se
+rækken konvergerer, eftersom den absolutte talfølge er monoton aftagende og går mod 0.
+\begin{align*}
+&\lim_{n \to \infty}\abs{\frac{(-1)^{n+1}}{n(n+1)}} = \lim_{n \to \infty} \abs{\frac{1}{n(n+1)}} = 0 \\
+\end{align*}
+At den er monotont aftagende kommer fra at
+\begin{align*}
+    &\frac{1}{n(n+1)} > \frac{1}{(n+1)(n+2)} \iff n(n+1) < (n+1)(n+2) \\
+    &\iff n^2 + n < n^2 + 3n + 2 \\
+    &\iff n < 3n + 2
+\end{align*}
+Altså vil rækken konvergere og ved brug af observation 2.31\cite{an1} kan vi se at
+den vil konvergere mod $s \in [s_4, s_5]$, hvor $s_4$ og $s_5$ er de delsummer vi får
+af de først $4$ og $5$ led i rækken. De er givet ved
+\begin{align*}
+    s_4 &= \frac{1}{1\cdot2} - \frac{1}{2\cdot3} + \frac{1}{3\cdot4} - \frac{1}{4\cdot5} = \frac{11}{30} \\
+    s_5 &= \frac{1}{1\cdot2} - \frac{1}{2\cdot3} + \frac{1}{3\cdot4} - \frac{1}{4\cdot5} + \frac{1}{5\cdot6} = \frac{4}{10}
+\end{align*}
+Altså konvergerer den mod $s \in [\frac{3}{10}, \frac{4}{10}]$.
 
 \section*{Opgave 3}
+\subsection*{a)}
+Ved brug af rodtesten \cite[sætning 2.26]{an1} kan vi undersøge for hvilke $a,b > 0$ at rækken vil konvergere.
+Vi undersøger derfor følgende grænseværdi\footnote{Der bliver brugt adskillige regneregler for grænseværdier, alle er fundet fra \cite[kapitel 2.4]{an0}}
+\begin{align*}
+    &\lim_{n \to \infty} \sqrt[n]{\frac{n^{an+b}}{(an+b)^n}}
+    =\lim_{n \to \infty} \frac{n^{a+\frac{b}{n}}}{an+b} \\
+    &=\lim_{n \to \infty} \frac{n^{a-1}\cdot n^{\frac{b}{n}}}{a+\frac{b}{n}}
+    =\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}} \\
+    &=\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}}
+    =\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}} \\
+    &=\frac{\lim_{n \to \infty} n^{a-1}\cdot \lim_{n \to \infty}n^{\frac{b}{n}}}{a}
+    =\frac{\lim_{n \to \infty} n^{a-1}}{a}
+\end{align*}
+Herfra kan vi konkludere at når $a < 1$ vil rækken konvergere mod $0$ da $n^{a-1} \to 0$.
+Derudover når $a > 1$ vil rækken divergere mod $\infty$. Altså kan vi konkludere at den original række
+vil konvergere for $a < 1$ og et vilkårligt $b$.
+\subsection*{b)}
+Vi undersøger så tilfældet for $a = 1$, hvor rodtesten er inkonklusiv. Vi kan omskrive udtrykket og se at
+
+\begin{align*}
+\frac{n^{n+b}}{(n+b)^n} 
+=\lr{\frac{n \cdot n^{\frac{b}{n}}}{n+b}}^n
+=\lr{\frac{n^{\frac{b}{n}}}{1+\frac{b}{n}}}^n
+=\frac{n^b}{\lr{1+\frac{b}{n}}^n}
+\end{align*}
+Undersøger man $\lim_{n \to \infty} (1+ \frac{b}{n})^n$ vil man kunne få stærk inspiration fra eksempel 1.47 \cite{an1}
+og se at 
+\begin{align*}
+    &\log\lr{(1+ \frac{b}{n})^n}
+    = n \cdot \log(1+ \frac{b}{n}) 
+    = \frac{\log(1+ \frac{b}{n})}{\frac{1}{n}} \\
+    &= \frac{\log\lr{\frac{\frac{1}{b}}{\frac{1}{b}} + \frac{\frac{1}{n}}{\frac{1}{b}}}}{\frac{1}{n}}
+    = \frac{\log\lr{\frac{\frac{1}{b} + \frac{1}{n}}{\frac{1}{b}}}}{\frac{1}{n}}
+    = \frac{\log\lr{\frac{1}{b} + \frac{1}{n}} - \log \lr{\frac{1}{b}}}{\frac{1}{n}}
+\end{align*}
+Hvilket er en differenskvotient, som vi ved er $\log'(\frac{1}{b}) = b$ når $n \to \infty$.
+Altså kan vi konkludere at 
+\begin{align*}
+&\lim_{n \to \infty} (1+ \frac{b}{n})^n
+=\lim_{n \to \infty} \exp \lr{\log \lr{(1+ \frac{b}{n})^n}}  \\
+&=\exp \lr{\lim_{n \to \infty} \log \lr{(1+ \frac{b}{n})^n}} 
+=\exp \lr{b}  \\
+\end{align*}
+Vi trækker her på kontinuitet af $\exp$ og $\log$ samt sætning 1.45 \cite{an1}. 
+Vi kan hurtigt konkludere at både $exp$ og $\log$ er kontinuerte funktioner i følgens elementer
+eftersom $(1+\frac{b}{n})^n > 1$ for $b>0$ hvor begge funktioner er kontinuerte.
+
+Så til konklusion må vi have at følgen $\lrc{\frac{n^{n+b}}{(n+b)^n}}_{n \in \mN}$ er divergent uanset valget af $b> 0$,
+og da det er et nødvendigt kriteriere for en talrække at konvergere at følgen skal konvergere mod $0$\cite[sætning 2.2]{an1} må
+det gælde at talrækken er divergent.
+
 
 \section*{Opgave 4}
-
-\section*{Opgave 5}
 
 %bibliography
 \bibliographystyle{plain}

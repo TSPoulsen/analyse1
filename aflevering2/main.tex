@@ -54,23 +54,24 @@
 \subsection*{a)}
 Da $f(x) = \sin(\frac{1}{x})$ er en positiv, kontinuert og aftagende 
 funktion på intervallet $[1, \infty)$, kan vi bruge sætning 2.20 til at 
-konkludere om rækken $\sum_n=1^\infty \sin(\frac{1}{n})$ er konvergent eller divergent.
+konkludere om rækken $\sum_{n=1}^{\infty} \sin(\frac{1}{n})$ er konvergent eller divergent.
 Det gør vi ved at undersøge det uegentlige integrale $\int_1^\infty \sin(\frac{1}{x}) dx$. 
 Ved brug af sætningen for partiel integration\cite[sætning 5.35]{an0} får vi først
 \begin{align*}
     \int_1^\infty \sin(\frac{1}{x}) dx &= \lim_{b \to \infty} \int_1^b \sin(\frac{1}{x}) dx \\
-    &= \lim_{b \to \infty} \lrb{\sin(\frac{1}{x})x}_1^{\infty} - \int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
+    &= \lim_{b \to \infty} \lrb{\sin(\frac{1}{x})x}_1^{b} - \int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
     &= \lim_{b \to 0} \frac{\sin(b)}{b} - \sin(1) - \lim_{b \to \infty}\int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
 \end{align*}
 Her kan vi bruge grænseværdien $\lim_{b \to 0} \frac{\sin(b)}{b} = 1$
-og sætningen for integration ved substition\cite[sætning 5.39]{an0} til at få
+og sætningen for integration ved substition\cite[sætning 5.39]{an0} 
+til at definere $u=\frac{1}{x}$ og få
 \begin{align*}
     &\lim_{b \to 0} \frac{\sin(b)}{b} - \sin(1) - \lim_{b \to \infty}\int_1^b \frac{-\cos(\frac{1}{x})}{x} dx \\ 
     &= 1 - \sin(1) -  \lim_{b \to \infty} \int_1^{\frac{1}{b}} \frac{\cos(u)}{u} du \\ 
     &= 1 - \sin(1) +  \lim_{b \to \infty} \int_{\frac{1}{b}}^1 \frac{\cos(u)}{u} du \\
 \end{align*}
 Herfra kan vi se at det originale integrale $\int_1^{\infty} \sin(\frac{1}{x})$ 
-er endeligt hvis og kun hvis
+er endeligt hvis og kun hvis det uegentlige integrale
 $\int_0^1{\frac{\cos(x)}{x}}$ er endeligt. Vi undersøger nu denne grænseværdi
 \begin{align*}
 &\lim_{b \to \infty} \int_{\frac{1}{b}}^1 \frac{\cos(u)}{u} du \\
@@ -88,13 +89,13 @@ hvor den ene består af $\sum_{n=2}^{\infty} \frac{1}{n^2}$
 og den anden består af $\sum_{n=2}^{\infty} \frac{1}{n\log(n)}$. 
 Fra eksempel 2.23\cite{an1} kan vi genkende den først som en konvergent p-række, 
 og med brug af sætning 2.9\cite{an1} kan vi se at rækken vi er interesseret i vil
-divergere/konvergere hvis rækken $-\sum_{n=2}^{\infty} - \frac{1}{n\log(n)}$ divergerer/konvergerer.
+divergere/konvergere hvis rækken $\sum_{n=2}^{\infty} \frac{1}{n\log(n)}$ divergerer/konvergerer.
 Vi undersøger derfor denne række ved brug af integraltesten\footnote{
     Sætningen siger specifikt at den kan bruges for rækker som starter i $n=1$,
     men der er intet i beviset der ikke kan generaliseres til en vilkårlig start værdi} 
 \cite[sætning 2.20]{an1}, da
 $f(x)=\frac{1}{x\log(x)}$ er en positiv, kontinuert og aftagende funktion på intervallet $[2, \infty)$.
-Vi får det uegentlige integrale ved brug af integration ved substition \cite[sætning 5.39]{an0} til at være
+Vi får det uegentlige integrale ved brug af integration ved substition \cite[sætning 5.39]{an0} hvor $u = \log(x)$ til at være
 \begin{align*}
    &\lim_{b \to \infty} \int_{2}^{b} \frac{1}{x\log(x)} dx \\
    &=\lim_{b \to \infty} \int_{\log(2)}^{\log(b)} \frac{1}{x\cdot u}x du \\
@@ -103,7 +104,7 @@ Vi får det uegentlige integrale ved brug af integration ved substition \cite[s�
    &=\lim_{b \to \infty} \log\log(b) - \log\log(2)
    =\infty
 \end{align*}
-Hvorfra vi kan konkludere at dette integrale divergerer, og dermed divergerer rækken 
+Hvorfra vi kan konkludere  at dette integrale divergerer, og dermed divergerer rækken 
 $\sum_{n=2}^{\infty}\frac{1}{n^2} - \frac{1}{n\log{n}}$.
 
 \subsection*{c)}
@@ -115,11 +116,13 @@ Ved at forkorte udtrykket i den absolutte række kan vi se at
     &=\sum_{n=1}^{\infty} \abs{\frac{4nc}{n}} \\
     &=\sum_{n=1}^{\infty} \abs{4c}
 \end{align*}
-Hvorfra vi kan se at den eneste tidspunkt denne række vil konvergere er for $c=0$.
+Hvorfra vi kan se ud fra divergenstesten \cite[Sætning 2.2]{an1} at den eneste tidspunkt denne række vil konvergere er for $c=0$,
+da rækken $\{4c\}_{n \in \mN}$ vil divergere for alle andre $c \in \mR$.
+
 
 \section*{Opgave 2}
 Da rækken er alternerende kan vi bruge Leibniz' test \cite[sætning 2.30]{an1} til at se
-rækken konvergerer, eftersom den absolutte talfølge er monoton aftagende og går mod 0.
+rækken konvergerer, eftersom den absolutte talfølge $\{\frac{1}{n(n+1)}\}_{n \in \mN}$ er monoton aftagende og går mod 0.
 \begin{align*}
 &\lim_{n \to \infty}\abs{\frac{(-1)^{n+1}}{n(n+1)}} = \lim_{n \to \infty} \abs{\frac{1}{n(n+1)}} = 0 \\
 \end{align*}
@@ -134,7 +137,7 @@ den vil konvergere mod $s \in [s_4, s_5]$, hvor $s_4$ og $s_5$ er de delsummer v
 af de først $4$ og $5$ led i rækken. De er givet ved
 \begin{align*}
     s_4 &= \frac{1}{1\cdot2} - \frac{1}{2\cdot3} + \frac{1}{3\cdot4} - \frac{1}{4\cdot5} = \frac{11}{30} \\
-    s_5 &= \frac{1}{1\cdot2} - \frac{1}{2\cdot3} + \frac{1}{3\cdot4} - \frac{1}{4\cdot5} + \frac{1}{5\cdot6} = \frac{4}{10}
+    s_5 &= s_4 + \frac{1}{5\cdot6} = \frac{4}{10}
 \end{align*}
 Altså konvergerer den mod $s \in [\frac{3}{10}, \frac{4}{10}]$.
 
@@ -147,16 +150,27 @@ Vi undersøger derfor følgende grænseværdi\footnote{Der bliver brugt adskilli
     =\lim_{n \to \infty} \frac{n^{a+\frac{b}{n}}}{an+b} \\
     &=\lim_{n \to \infty} \frac{n^{a-1}\cdot n^{\frac{b}{n}}}{a+\frac{b}{n}}
     =\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}} \\
-    &=\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}}
-    =\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{\lim_{n \to \infty} a+\frac{b}{n}} \\
-    &=\frac{\lim_{n \to \infty} n^{a-1}\cdot \lim_{n \to \infty}n^{\frac{b}{n}}}{a}
-    =\frac{\lim_{n \to \infty} n^{a-1}}{a}
+    &=\frac{\lim_{n \to \infty} n^{a-1}\cdot n^{\frac{b}{n}}}{a}
+    =\frac{\lim_{n \to \infty} n^{a-1}\cdot \lim_{n \to \infty}n^{\frac{b}{n}}}{a} \\
+    &=\frac{\lim_{n \to \infty} n^{a-1}}{a}
 \end{align*}
-Herfra kan vi konkludere at når $a < 1$ vil rækken konvergere mod $0$ da $n^{a-1} \to 0$.
-Derudover når $a > 1$ vil rækken divergere mod $\infty$. Altså kan vi konkludere at den original række
+Her er det vigtigt at bemærke at grænseværdien kan splittes op i tæller og nævner i brøken
+eftersom nævneren er konvergent, og ligeledes må produktet 
+$\lim_{n \to \infty} n^{a-1} \cdot n^{b/n}$ splittes op da $\lim_{n \to \infty} n^{b/n} = 1$.
+
+Herfra får vi følgende konklusion fra rodtesten
+\[
+    \lim_{n \to \infty} n^{a-1} = 
+    \begin{cases}
+    0 & \text{if } a < 1 \\
+    \infty & \text{if } a > 1 \\
+    \end{cases}
+\]
+Altså kan vi konkludere at den original række
 vil konvergere for $a < 1$ og et vilkårligt $b$.
 \subsection*{b)}
-Vi undersøger så tilfældet for $a = 1$, hvor rodtesten er inkonklusiv. Vi kan omskrive udtrykket og se at
+Vi undersøger så tilfældet for $a = 1$, hvor rodtesten er inkonklusiv.
+Vi kan omskrive følgen og se at
 
 \begin{align*}
 \frac{n^{n+b}}{(n+b)^n} 
@@ -174,7 +188,7 @@ og se at
     = \frac{\log\lr{\frac{\frac{1}{b} + \frac{1}{n}}{\frac{1}{b}}}}{\frac{1}{n}}
     = \frac{\log\lr{\frac{1}{b} + \frac{1}{n}} - \log \lr{\frac{1}{b}}}{\frac{1}{n}}
 \end{align*}
-Hvilket er en differenskvotient, som vi ved er $\log'(\frac{1}{b}) = b$ når $n \to \infty$.
+Hvilket er en differenskvotient for $\log(x)$, som vi ved er $\log'(\frac{1}{b}) = \frac{1}{\frac{1}{b}} = b$.
 Altså kan vi konkludere at 
 \begin{align*}
 &\lim_{n \to \infty} (1+ \frac{b}{n})^n
@@ -183,15 +197,22 @@ Altså kan vi konkludere at
 =\exp \lr{b}  \\
 \end{align*}
 Vi trækker her på kontinuitet af $\exp$ og $\log$ samt sætning 1.45 \cite{an1}. 
-Vi kan hurtigt konkludere at både $exp$ og $\log$ er kontinuerte funktioner i følgens elementer
+Vi kan hurtigt konkludere at både $\exp$ og $\log$ er kontinuerte funktioner i følgens elementer
 eftersom $(1+\frac{b}{n})^n > 1$ for $b>0$ hvor begge funktioner er kontinuerte.
 
-Så til konklusion må vi have at følgen $\lrc{\frac{n^{n+b}}{(n+b)^n}}_{n \in \mN}$ er divergent uanset valget af $b> 0$,
-og da det er et nødvendigt kriteriere for en talrække at konvergere at følgen skal konvergere mod $0$\cite[sætning 2.2]{an1} må
-det gælde at talrækken er divergent.
-
+Så til konklusion må vi have at 
+\[
+    \lim_{n \to \infty} \frac{n^b}{\lr{1+\frac{b}{n}}^n} 
+    = \lim_{n \to \infty} \frac{n^b}{\exp(b)} = \infty
+\]
+uanset valget af $b$ så længe $b>0$. Altså konkluderer vi ved brug af 
+divergenstesten \cite[sætning 2.2]{an1} at talrækken $\sum_{n=1}^\infty \frac{n^{n+b}}{(n+b)^n}$ 
+er divergent da talfølgen ikke har grænseværdi $0$.
 
 \section*{Opgave 4}
+Jeg definerer først $S_N(x) := \sum_{n=1}^N \frac{1 - \sin(nx)}{n^p}$.
+Lad nu $x \in \mR$ vi kan derfor kigge på funktionsfølgen $\lrc{S_N(x)}_{N \in \mN}$.
+Da, 
 
 %bibliography
 \bibliographystyle{plain}

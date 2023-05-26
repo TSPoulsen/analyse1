@@ -49,7 +49,6 @@
 \author{Tim Sehested Poulsen}
 
 \begin{document}
-\textbf{OBS: Alle referencer til sætninger, lemmaer, osv. er fra bogen [CES]}
 \section*{Opgave 1}
 \subsection*{a)}
 Da $f(x) = \sin(\frac{1}{x})$ er en positiv, kontinuert og aftagende 
@@ -233,7 +232,7 @@ Altså har vi en funktionsfølge $\{S_n(x)\}_{n \in \mN}$ hvor hvert element i f
 og den konvergerer uniformt mod $s^p$, altså må $s^p$ være kontinuert på $\mR$ grundet sætning 3.13\cite{an1}.
 
 \subsection*{c)}
-Det kan rimelig let ses at $S_N(x)$ er differentiable for $x \in \mR$ da $1-\sin(nx)$ er differentiabel.
+Det kan rimelig let ses at $S_N(x)$ er differentiabel for $x \in \mR$ da $1-\sin(nx)$ er differentiabel.
 Jeg starter derfor med at kigge på følgen $\{S_n(x)'\}_{n \in \mN}$.
 Da kan jeg se at følgens elementer er givet ved:
 \[
@@ -252,10 +251,10 @@ Hvilket igen udgør elementer i en $p$-række som konvergerer for $p>2$.
 Altså har vi nu at $\{ S_N(x) \}_{N \in \mN}$ konvergerer uniformt mod $s^p$ på $\mR$ for $p>1$, og
 $\{ S_N(x)' \}_{N \in \mN}$ konvergerer uniformt mod $\sum_{n=1}^{\infty} \frac{-\cos(nx)}{n^{p-1}}$ på $\mR$ for $p>2$.
 Da vil vi kunne bruge korollar 3.20 til at konkludere at $s^p$ er differentiabel for $p>2$ og
-$s^{p}(x)' = \sum_{n=1}^{\infty} \frac{-\cos(nx)}{n^{p-1}}$ for $p>2$. 
-Ydermere har vi faktisk allerede kunne argumenteret for at $S^p(x)'$ er kontinuert af samme grunde som i
+$s^{p}(x)' = \sum_{n=1}^{\infty} \frac{-\cos(nx)}{n^{p-1}}$. 
+Ydermere har vi faktisk allerede kunne argumenteret for at $s^p(x)'$ er kontinuert af samme grunde som i
 opgave b). Altså at hver følgeelement $S_N(x)'$ er kontinuert (da $\cos(x)$ er kontinuert) og vi har uniform konvergens mod
-$S^p(x)'$, da må det følge af sætning 3.13\cite{an1} at $s^p(x)'$ er kontinuert.
+$s^p(x)'$, da må det følge af sætning 3.13\cite{an1} at $s^p(x)'$ er kontinuert.
 
 \subsection*{d)}
 Opgaven her består af fuldstændig samme argumentation som i delopgave c),
@@ -267,14 +266,14 @@ Da $-\cos(nx)$ er differentiabel, kan vi finde $S_N(x)''$:
     = \sum_{n=1}^{N} \frac{\sin(nx)\cdot x}{n^{p-1}}
     = \sum_{n=1}^{N} \frac{\sin(nx)}{n^{p-2}}
 \]
-Her kan man igen bruge Weierstrass' Majoranttest til at se at 
+Her kan man igen bruge Weierstrass' Majoranttest med $\frac{1}{n^{p-2}}$ som majorrantrække til at se at 
 $\sum_{n=1}^{\infty} \frac{\sin(nx)}{n^{p-2}}$ konvergerer uniformt på $\mR$ for $p>3$.
-Da $S_N(x)''$ er kontinuert kan vi også konkludere at 
+Da $S_N(x)''$ er kontinuert og konvergerer uniformt kan vi igen konkludere at 
 $\sum_{n=1}^{\infty} \frac{\sin(nx)}{n^{p-2}}$ er kontinuert.
 Da vi har uniform konvergens for både $\{S_N(x)'\}_{n \in \mN}$ 
 og $\{S_N(x)''\}_{n \in \mN}$, kan vi igen bruge korollar 3.20 til at konkludere
 at $s^p(x)'' =  \sum_{n=1}^{\infty} \frac{\sin(nx)}{n^{p-2}}$.
-Altså er kan vi konkludere at $s^p(x)$ er $C^2$ for $p>3$.
+Altså kan vi konkludere at $s^p(x)$ er $C^2$ for $p>3$.
 
 
 

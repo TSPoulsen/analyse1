@@ -1,0 +1,227 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % to write æÆøØåÅ.
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym,mathtools,amsthm}
+\include{symbols.tex}
+\usepackage[danish]{babel}
+\usepackage{todo}
+\usepackage{import}
+\usepackage[margin=0.9in]{geometry} % Adjust margin
+    \setlength\parindent{6pt}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+    \setenumerate[1]{label={\alph*)}}
+
+% Nice header and footer
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+
+\pagestyle{fancy}
+% header rigth 
+\fancyhead[l]{Tim Sehested Poulsen}
+\fancyhead[r]{tpw705}
+%foot center
+\fancyfoot[c]{Side \thepage af \ztotpages}
+
+\usepackage[skip=1em]{parskip}
+
+% Custom Commands
+\newcommand{\m}[1]{\mathbb{#1}}
+\newcommand{\mC}{\m{C}}
+\newcommand{\mR}{\m{R}}
+\newcommand{\mQ}{\m{Q}}
+\newcommand{\mZ}{\m{Z}}
+\newcommand{\mN}{\m{N}}
+
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\lr}[1]{\left( #1\right)}
+\newcommand{\lrb}[1]{\left[ #1\right]}
+\newcommand{\lrc}[1]{\left\{ #1\right\}}
+\newcommand{\bigpare}[1]{\bigg( #1\bigg)}
+\newcommand{\cbrac}[1]{\left\{ #1\right\}}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1\right\rceil}
+\newcommand{\set}[2]{\left\{ #1 \hspace{0.15cm} \textbf{\textbar}  \hspace{0.15cm} #2 \right\} }
+
+
+% 
+\title{Analyse 1 Hjemmeopgave 3}
+\author{Tim Sehested Poulsen}
+
+\begin{document}
+\section*{Opgave 1}
+\subsection*{a)}
+For at bestemme konvergensradius for potensrækken $\sum_{n=1}^{\infty} \frac{2^n}{n^2} z^n$ bruger jeg sætning 4.7 \cite{an1} og bestemmer
+$\lim_{n \to \infty} |\frac{2^n}{n^2}|^{\frac{1}{n}}$. Jeg får at
+\[
+    \lim_{n \to \infty} |\frac{2^n}{n^2}|^{\frac{1}{n}}
+    = \lim_{n \to \infty} \frac{2}{n^{\frac{2}{n}}}
+    = 2
+\]
+Hvorfra vi får den sidste ulighed fra at $\lim_{n \to \infty} n^{\frac{2}{n}} = 1$ \cite[Eks. ]{an1}
+\todo{Find reference til eksempel}.
+Altså må rækken have konvergensradius $r=\frac{1}{2}$.
+For at bestemme konvergensområdet for rækken, skal jeg bestemme om rækken konvergerer for $z \in \mC_{\frac{1}{2}} := \set{w \in \mC}{|w|=\frac{1}{2}}$.
+Jeg kigger nu på den absolutte række $\sum_{n=1}^{\infty} | \frac{2^n}{n^2} z^n|$ for $z \in \mC_{\frac{1}{2}}$ og ser at
+\[
+    \sum_{n=1}^{\infty} | \frac{2^n}{n^2} z^n|
+    = \sum_{n=1}^{\infty} | \frac{2^n}{n^2}| |z|^n
+    = \sum_{n=1}^{\infty} | \frac{2^n}{n^2}| |\frac{1}{2}|^n
+    = \sum_{n=1}^{\infty} | \frac{1}{n^2}|
+    = \sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+Hvilket er en konvergent $p$-række. Altså er $\sum_{n=1}^{\infty} \frac{2^n}{n^2} z^n$ absolut konvergent
+for $z \in \mC_{\frac{1}{2}}$ og derved også konvergent.
+Så konvergensområdet må være $z \in \mC$ hvor $|z| \le \frac{1}{2}$
+
+\subsection*{b)}
+Jeg bruger først sætning 4.8 \cite{an1} til at bestemme konvergensradius. Da skal
+jeg derfor bestemme $\lim_{n \to \infty} |\frac{(n+1)^2}{n^2}|$
+\[
+    \lim_{n \to \infty} |\frac{(n+1)^2}{n^2}|
+    = \lim_{n \to \infty} |\frac{n^2 +2n + 1}{n^2}|
+    = \lim_{n \to \infty} |\frac{1 +\frac{2}{n} + \frac{1}{n^2}}{1}|
+    = 1 
+\]
+Da må konvergensradius være $r=1$ for rækken. For at bestemme sumfunktionen $s(x)$ for rækken
+starter jeg med at kigge på den geometriske række $\sum_{n=1}^{\infty} x^n$  
+som har sumfunktionen $f_0(x) = \frac{1}{1-x}$ for $|x| < 1$.
+Da kan jeg bruge sætning 4.23 \cite{an1} til at bestemme følgende 
+\[
+    \sum_{n=1}^{\infty} n x^{n-1} = \frac{1}{(1-x)^2}
+\]
+Ligeledes kan jeg bruge sætning 4.15 \cite{an1} til at "gange" $x$ på begge sider
+og få følgende
+\[
+    \sum_{n=1}^{\infty} n x^{n} = \frac{x}{(1-x)^2}
+\]
+Jeg kan nu igen bruge sætning 4.23 og sætning 4.15 \cite{an1} til igen af "differentiere" og "gange" med $x$ og får så
+\begin{align*}
+    &\sum_{n=1}^{\infty} n^2 x^{n-1} = \lr{\frac{x}{(1-x)^2}}' = \frac{1+x}{(1-x)^3} \\
+    &\sum_{n=1}^{\infty} n^2 x^{n} = \frac{x+x^2}{(1-x)^3}
+\end{align*}
+Hvilket er præcist den potensrækken vi har, altså er $s(x) = \frac{x+x^2}{(1-x)^3}$.
+
+
+\section*{Opgave 2}
+\subsection*{a)}
+Jeg omskriver først $a_n$ til 
+
+\begin{align*}
+    a_n &= \sum_{k=1}^{n} \frac{1}{(2k-1)2k} 
+    = \sum_{k=1}^{n} \frac{1}{2k-1} - \frac{1}{2k}  \\
+    &= \frac{1}{1} - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \dots + \frac{1}{2n-1} - \frac{1}{2n} \\
+\end{align*}
+Hvorfra det kan ses at det er den alternerende sum $a_n = \sum_{k=1}^{2n} \frac{(-1)^{k+1}}{k}$.
+Fra eksempel 4.25 \cite[s. 151]{an1} kan vi faktisk nu konkludere at rækken
+$\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = \log(2)$, og da må det gælde at følgen $\{a_n\}_{n \in \mN}$ konvergere mod
+$\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = \log(2)$.
+
+\subsection*{b)}
+Jeg starter med at definere $c_n := \frac{(-1)^{n}}{(2n-1)2n}$ for $n \in \mN$ 
+og at $c_0 = 0$.
+Jeg undersøger så om rækken $\sum_{n=0}^{\infty} c_n x^n$ 
+er konvergent ved brug af sætning 4.8 \cite{an1} og bestemmer derfor 
+\begin{align*}
+    & \lim_{n \to \infty} \abs{\frac{c_{n+1}}{c_n}} \lim_{n \to \infty} |\frac{(2n-1)2n}{(2(n+1) -1)2(n+1)}| 
+    = \lim_{n \to \infty} |\frac{(2n-1)2n}{(2n+1)2(n+1)}|  \\
+    &= \lim_{n \to \infty} |\frac{2n^2-n}{2n^2 + 2n + n + 1}| 
+    = \lim_{n \to \infty} |\frac{2-\frac{1}{n}}{2 + \frac{3}{n} + \frac{1}{n^2}}|
+    = 1
+\end{align*}
+Altså er potensrækken konvergent med konvergensradius $r=1$. Derudover vil jeg bemærke at
+vi ved at den (næsten) geometriske række $\sum_{n=0}^{\infty} (-1)^n x^n$ er konvergent med konvergensradius $1$.
+Jeg bruger nu sætning 4.19 \cite{an1} og ser at Cauchy multiplikationen af rækkerner er givet ved
+\begin{align*}
+    &\sum_{n=0}^{\infty} \sum_{k=0}^{n} (c_k \cdot (-1)^{n-k}) \cdot x^n 
+    =\sum_{n=0}^{\infty} \sum_{k=0}^{n} (\frac{(-1)^{k}}{(2k-1)2k} \cdot (-1)^{n-k}) \cdot x^n  \\
+    &= \sum_{n=0}^{\infty} (-1)^n \sum_{k=0}^{n} \frac{1}{(2k-1)2k} \cdot x^n
+    = \sum_{n=0} (-1)^n a_n x^n
+\end{align*}
+
+per sætning 4.19 har den konvergensradius $r \ge \min\{1,1\} = 1$, da begge rækkerne har konvergensradius $1$.
+
+Hvis $x = 1$ har vi rækken $\sum_{n=0}^{\infty} a_n$ hvofra vi ved grundet
+divergenstesten \cite[sætning 2.2]{an1} at rækken divergerer eftersom $\lim_{n \to \infty} a_n = \log(2) \neq 0$.
+Altså må konvergensradiusen være $r \le 1$ og derfor er $r=1$.
+
+Derfor kan vi også konkludere at rækken $\sum_{n=0}^{\infty} (-1)^n a_n x^{2n}$ 
+har konvergensradius $1^{\frac{1}{2}} = 1$ grundet sætning 4.15 \cite{an1}.
+
+\subsection*{c)}
+Da jeg fra forrige opgave også kan konkludere med sætning 4.19 at $s(x) = f(x^2) \cdot g(x^2)$
+hvor $f(x)$ er sum funktionen for $\sum_{n=0}^{\infty} (-1)^n x^n$ som ved brug af regnereglerne fra sætning 4.15 \cite{an1}
+forholsvis hurtigt kan se er $f(x^2) = \frac{1}{1+x^2}$.
+Altå må $(1+x^2)s(x) = g(x^2) = \sum_{n=0}^{\infty} (-1)^n \cdot c_n \cdot  x^{2n}$.
+For at tage hul på højresiden af ligheden, altså $-x \arctan(x) + \frac{\log(1+x^2)}{2}$ vil jeg først genkende 
+fra eksempel 4.25 og eksempel 4.26 \cite{an1} at
+\begin{align*}
+    \log(1+x) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} x^n &\implies
+    \frac{\log(1+x^2)}{2} = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{2n} x^{2n} \\
+    \arctan(x) = \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2n+1} x^{2n+1} &\implies
+    -x\arctan(x) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}}{2n+1} x^{2(n+1)}
+\end{align*}
+Hvor implikationen kommer fra sætning 4.15 \cite{an1}.
+Jeg vil omskrive disse to rækker til at starte i samme $n$ og derefter føre 
+dem ind i den samme række ved brug af sætning 4.19 \cite{an1}.
+\begin{align*}
+&-x\arctan(x) + \frac{\log(1+x^2)}{2} 
+= \sum_{n=0}^{\infty} \frac{(-1)^{n+1}}{2n+1} x^{2(n+1)} + \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{2n} x^{2n} \\
+&= \sum_{n=1}^{\infty} \frac{(-1)^{(n-1)+1}}{2(n-1)+1} x^{2((n-1)+1)} - \sum_{n=1}^{\infty} \frac{(-1)^{n}}{2n} x^{2n} \\
+&= \sum_{n=1}^{\infty} \frac{(-1)^{n}}{2n-1} x^{2n} - \sum_{n=1}^{\infty} \frac{(-1)^{n}}{2n} x^{2n} \\
+&= \sum_{n=1}^{\infty} \frac{(-1)^{n}}{2n-1} x^{2n} - \frac{(-1)^{n}}{2n} x^{2n} \\
+&= \sum_{n=1}^{\infty} \lr{\frac{1}{2n-1} - \frac{1}{2n}} (-1)^{n} x^{2n} 
+= \sum_{n=1}^{\infty} (-1)^{n} c_n x^{2n} \\
+&= g(x^2) = (1 + x^2) s(x)
+\end{align*}
+
+Altså har vi vist at $(1 + x^2) s(x) = -x\arctan(x) + \frac{\log(1+x^2)}{2}$.
+
+\section{Opgave 3}
+\subsection*{a)}
+Så jeg omskriver udtrykket $x^2f(x)$ for at se hvad det giver. Jeg bruger adskillige rengeregler
+fra sætning 4.15, 4.19 og 4.24 \cite{an1} og kommer ikke til at referere til præcist hvilke for hver udregning
+og håber at tilstrækkeligt\footnote{Det er altså hårdt arbejde og tager meget plads hvis jeg skulle gøre det}.
+\begin{align*}
+    &x^2 f(x) = x^2 \sum_{k=0}^{\infty} \frac{(-1)^k}{k+2} x^k 
+    = \sum_{k=2}^{\infty} \frac{(-1)^{k-2}}{(k-2)+2} x^{k}
+    = \sum_{k=1}^{\infty} \frac{(-1)^{k}}{k} x^{k} + x
+\end{align*}
+Vi kan nu derfor isolere at vi skal tjekke om
+\[
+    \sum_{k=1}^{\infty} \frac{(-1)^{k}}{k} x^{k} = -\log(1+x)
+\]
+Hvilket hurtigt kommer fra det faktum at i eksempel 4.25 \cite{an1} har vi at
+\[
+    \log(1+x) = \sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} x^{k}
+\]
+Altså har vi at $x^2f(x) = -\log(1+x) + x$. Og ved at dividere med $x^2$ på begge sider
+får vi det ønskede resultat for $x \ne 0$. 
+For $x=0$ kan det hurtigt ses at rækken er givet ved
+\[
+    \sum_{k=0}^{\infty} \frac{(-1)^k}{k+2} x^k = \frac{(-1)^0}{0+2} \cdot x^0 = \frac{1}{2}
+\]
+med den konvention at $x^0$ for $x=0$ er $1$.
+
+\subsection*{b)}
+Jeg viser først grænseværdien specielt ved brug af L'Hôpital's regel.
+\begin{align*}
+    &\lim_{n \to \infty} n^2 \lr{ \frac{1}{n} - \log(1 + \frac{1}{n})}
+    =\lim_{n \to \infty}  \frac{\frac{1}{n} - \log(1 + \frac{1}{n})}{\frac{1}{n^2}}
+    =\lim_{n \to \infty}  \frac{-\frac{1}{n^2} - \frac{1}{1+ \frac{1}{n}} \cdot \frac{-1}{n^2}}{-\frac{2}{n^3}} \\
+    &=\lim_{n \to \infty}  \frac{-n^3}{2} \cdot \frac{1}{n^2} \cdot \lr{\frac{1}{1+\frac{1}{n}} - 1}
+    =\lim_{n \to \infty}  \frac{-n}{2} \cdot \frac{1 - 1 - \frac{1}{n}}{1+\frac{1}{n}}
+    =\lim_{n \to \infty}  \frac{1}{2 + \frac{2}{n}} = \frac{1}{2}
+\end{align*}
+
+
+
+%Jeg bemærker nu at da $\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} x^n$, må det gælde at
+
+
+
+%bibliography
+\bibliographystyle{plain}
+\bibliography{refs.bib}
+
+\end{document}

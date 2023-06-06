@@ -1,0 +1,64 @@
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym,mathtools,amsthm}
+
+% Left-right bracket
+\newcommand{\lr}[1]{\left (#1 \right ) }
+
+% Left-right square bracket
+\newcommand{\lrs}[1]{ \left [ #1 \right ] }
+
+% Left-right curly bracket
+\newcommand{\lrc}[1]{\left \{#1 \right \} }
+
+% Left-right absolute value
+\newcommand{\lra}[1]{\left |#1 \right|}
+
+% Left-right upper value
+\newcommand{\lru}[1]{\left \lceil#1\right\rceil}
+
+% Scalar product
+\newcommand{\vp}[2]{\left \langle#1, #2 \right \rangle}
+
+% The real numbers
+\newcommand{\R}{\mathbb{R}}
+
+% The natural numbers
+\newcommand{\N}{\mathbb{N}}
+
+% A nicer emptyset symbol
+\let\emptyset\varnothing
+
+% Set constructor
+\newcommand{\setdef}[2]{\lrc{ #1 \; \text{\textbar} \; #2}}
+
+% j'th entry
+\newcommand{\xj}{X^{(j)}}
+
+% pretty epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
+% eps, delta - dp
+\newcommand{\edp}{$(\epsilon, \delta)$-DP }
+
+% rando algo M
+\newcommand{\M}{\mathcal{M}}
+
+% Probability
+\newcommand{\prob}[1]{\Pr\lrs{#1}}
+
+% Expected Error
+\newcommand{\ee}[1]{\mathbb{E} \lrs{ \| #1 \|^2}}
+
+% Variance 
+\newcommand{\var}[1]{\text{Var} \lrs{ #1 }}
+
+% Expected value
+\newcommand{\Exp}[1]{\mathbb{E} \lrs{ #1 }}
+
+% Mean estimate
+\newcommand{\mue}{\bm{\hat{\mu}}}
+
+% (epsilon, delta)
+\newcommand{\ed}{\lr{\epsilon, \delta}}
+
+% Cite attempt
+\newcommand{\defcite}[2]{\cite[#2]{#1}}

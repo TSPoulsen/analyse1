@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,amsfonts,mathrsfs,latexsym,mathtools,amsthm}
 \include{symbols.tex}
 \usepackage[danish]{babel}
+\usepackage[fixlanguage]{babelbib}
 \usepackage{todo}
 \usepackage{import}
 \usepackage[margin=0.9in]{geometry} % Adjust margin
@@ -58,8 +59,7 @@ $\lim_{n \to \infty} |\frac{2^n}{n^2}|^{\frac{1}{n}}$. Jeg får at
     = \lim_{n \to \infty} \frac{2}{n^{\frac{2}{n}}}
     = 2
 \]
-Hvorfra vi får den sidste ulighed fra at $\lim_{n \to \infty} n^{\frac{2}{n}} = 1$ \cite[Eks. ]{an1}
-\todo{Find reference til eksempel}.
+Hvorfra vi får den sidste ulighed fra at $\lim_{n \to \infty} n^{\frac{2}{n}} = 1$ \cite[Eks. 1.46]{an1}
 Altså må rækken have konvergensradius $r=\frac{1}{2}$.
 For at bestemme konvergensområdet for rækken, skal jeg bestemme om rækken konvergerer for $z \in \mC_{\frac{1}{2}} := \set{w \in \mC}{|w|=\frac{1}{2}}$.
 Jeg kigger nu på den absolutte række $\sum_{n=1}^{\infty} | \frac{2^n}{n^2} z^n|$ for $z \in \mC_{\frac{1}{2}}$ og ser at
@@ -70,8 +70,9 @@ Jeg kigger nu på den absolutte række $\sum_{n=1}^{\infty} | \frac{2^n}{n^2} z^
     = \sum_{n=1}^{\infty} | \frac{1}{n^2}|
     = \sum_{n=1}^{\infty} \frac{1}{n^2}
 \]
-Hvilket er en konvergent $p$-række. Altså er $\sum_{n=1}^{\infty} \frac{2^n}{n^2} z^n$ absolut konvergent
-for $z \in \mC_{\frac{1}{2}}$ og derved også konvergent.
+Hvilket er en konvergent $p$-række \cite[Eks. 2.23]{an1}. 
+Altså er $\sum_{n=1}^{\infty} \frac{2^n}{n^2} z^n$ absolut konvergent
+for $z \in \mC_{\frac{1}{2}}$ og derved også konvergent \cite[2.36]{an1}.
 Så konvergensområdet må være $z \in \mC$ hvor $|z| \le \frac{1}{2}$
 
 \subsection*{b)}
@@ -100,9 +101,11 @@ Jeg kan nu igen bruge sætning 4.23 og sætning 4.15 \cite{an1} til igen af "dif
     &\sum_{n=1}^{\infty} n^2 x^{n-1} = \lr{\frac{x}{(1-x)^2}}' = \frac{1+x}{(1-x)^3} \\
     &\sum_{n=1}^{\infty} n^2 x^{n} = \frac{x+x^2}{(1-x)^3}
 \end{align*}
-Hvilket er præcist den potensrækken vi har, altså er $s(x) = \frac{x+x^2}{(1-x)^3}$.
+Hvilket er præcist den potensrækken vi har, altså er $s(x) = \frac{x+x^2}{(1-x)^3}$,
+da ingen af disse regneregler har ændret konvergensradien fra $1$.
 
 
+\newpage
 \section*{Opgave 2}
 \subsection*{a)}
 Jeg omskriver først $a_n$ til 
@@ -130,11 +133,13 @@ er konvergent ved brug af sætning 4.8 \cite{an1} og bestemmer derfor
     = 1
 \end{align*}
 Altså er potensrækken konvergent med konvergensradius $r=1$. Derudover vil jeg bemærke at
-vi ved at den (næsten) geometriske række $\sum_{n=0}^{\infty} (-1)^n x^n$ er konvergent med konvergensradius $1$.
+vi hurtigt kan konkludere at den alternerende geometriske række $\sum_{n=0}^{\infty} (-1)^n x^n$ 
+er konvergent med konvergensradius $1$ grundet sætning 4.15 \cite{an1}.
 Jeg bruger nu sætning 4.19 \cite{an1} og ser at Cauchy multiplikationen af rækkerner er givet ved
 \begin{align*}
-    &\sum_{n=0}^{\infty} \sum_{k=0}^{n} (c_k \cdot (-1)^{n-k}) \cdot x^n 
-    =\sum_{n=0}^{\infty} \sum_{k=0}^{n} (\frac{(-1)^{k}}{(2k-1)2k} \cdot (-1)^{n-k}) \cdot x^n  \\
+    &\lr{\sum_{n=0}^{\infty} c_n x^n} \cdot \lr{\sum_{n=0}^{\infty} (-1)^n x^n}
+    =\sum_{n=0}^{\infty} \sum_{k=0}^{n} (c_k \cdot (-1)^{n-k}) \cdot x^n \\
+    &=\sum_{n=0}^{\infty} \sum_{k=0}^{n} (\frac{(-1)^{k}}{(2k-1)2k} \cdot (-1)^{n-k}) \cdot x^n  \\
     &= \sum_{n=0}^{\infty} (-1)^n \sum_{k=0}^{n} \frac{1}{(2k-1)2k} \cdot x^n
     = \sum_{n=0} (-1)^n a_n x^n
 \end{align*}
@@ -151,7 +156,7 @@ har konvergensradius $1^{\frac{1}{2}} = 1$ grundet sætning 4.15 \cite{an1}.
 \subsection*{c)}
 Da jeg fra forrige opgave også kan konkludere med sætning 4.19 at $s(x) = f(x^2) \cdot g(x^2)$
 hvor $f(x)$ er sum funktionen for $\sum_{n=0}^{\infty} (-1)^n x^n$ som ved brug af regnereglerne fra sætning 4.15 \cite{an1}
-forholsvis hurtigt kan se er $f(x^2) = \frac{1}{1+x^2}$.
+forholsvis hurtigt kan ses til at være $f(x^2) = \frac{1}{1+x^2}$.
 Altå må $(1+x^2)s(x) = g(x^2) = \sum_{n=0}^{\infty} (-1)^n \cdot c_n \cdot  x^{2n}$.
 For at tage hul på højresiden af ligheden, altså $-x \arctan(x) + \frac{\log(1+x^2)}{2}$ vil jeg først genkende 
 fra eksempel 4.25 og eksempel 4.26 \cite{an1} at
@@ -175,13 +180,14 @@ dem ind i den samme række ved brug af sætning 4.19 \cite{an1}.
 &= g(x^2) = (1 + x^2) s(x)
 \end{align*}
 
+Hvor den sidste lighed kun gælder fordi $c_0 = 0$.
 Altså har vi vist at $(1 + x^2) s(x) = -x\arctan(x) + \frac{\log(1+x^2)}{2}$.
 
-\section{Opgave 3}
+\section*{Opgave 3}
 \subsection*{a)}
-Så jeg omskriver udtrykket $x^2f(x)$ for at se hvad det giver. Jeg bruger adskillige rengeregler
+Jeg omskriver udtrykket $x^2f(x)$ for at se hvad det giver. Jeg bruger adskillige rengeregler
 fra sætning 4.15, 4.19 og 4.24 \cite{an1} og kommer ikke til at referere til præcist hvilke for hver udregning
-og håber at tilstrækkeligt\footnote{Det er altså hårdt arbejde og tager meget plads hvis jeg skulle gøre det}.
+og håber at det er tilstrækkeligt\footnote{Det er altså hårdt arbejde og tager meget plads hvis jeg skulle gøre det}.
 \begin{align*}
     &x^2 f(x) = x^2 \sum_{k=0}^{\infty} \frac{(-1)^k}{k+2} x^k 
     = \sum_{k=2}^{\infty} \frac{(-1)^{k-2}}{(k-2)+2} x^{k}
@@ -213,10 +219,98 @@ Jeg viser først grænseværdien specielt ved brug af L'Hôpital's regel.
     =\lim_{n \to \infty}  \frac{-n}{2} \cdot \frac{1 - 1 - \frac{1}{n}}{1+\frac{1}{n}}
     =\lim_{n \to \infty}  \frac{1}{2 + \frac{2}{n}} = \frac{1}{2}
 \end{align*}
+Jeg vil nu bemærke at vi har en positiv talrække, grundet udligheden at 
+$\log(x) \le x-1$ og derfor er 
+\[
+    \frac{1}{n} - \log(1 + \frac{1}{n}) \ge \frac{1}{n} - (1 + \frac{1}{n} - 1) = 0
+\] 
+Vi kan nu bruge sætning 12.2.8 \cite{tl} til at konkludere at 
+$\sum_{n=1}^{\infty} \frac{1}{n} - \log(1 + \frac{1}{n})$ er konvergent eftersom
+$\sum_{n=1}^{\infty} \frac{1}{n^2}$ både er positiv og konvergent \cite[Eks. 2.23]{an1} og
+\[
+    \lim_{n \to \infty} \frac{\frac{1}{n} - \log(1 + \frac{1}{n})}{\frac{1}{n^2}} = \frac{1}{2} < \infty
+\]
+
+\subsection*{c)}
+Jeg viser ligheden ved et induktionsbevis. Så for $N=1$ er det hurtigt at se at
+\[
+    \sum_{n=1}^{1} \log(1+ \frac{1}{n}) = \log(1 + \frac{1}{1}) = \log(1 + 1)
+\]
+Så for induktionsskridtet antag for induktion at $\sum_{n=1}^{N} \log(1+ \frac{1}{n}) = \log(1 + N)$ for et $N \in \mN$.
+Jeg vil nu vise at så må det gælde at $\sum_{n=1}^{N+1} \log(1+ \frac{1}{n}) = \log(1 + N+1)$.
+Det kan ses ved
+\[
+    \sum_{n=1}^{N+1} \log(1+ \frac{1}{n}) 
+    = \sum_{n=1}^{N} \log(1+ \frac{1}{n}) + \log(1+ \frac{1}{N+1})
+    = \log(1 + N) + \log(1+ \frac{1}{N+1}) 
+    = \log((1 + N)(1+ \frac{1}{N+1})) 
+    = \log(1 + N+1)
+\]
+og så er induktionsskridtet gennemført.
+
+For så at vise konvergens af følgen $\{ \gamma_N \}_{N \in \mN}$ omskriver jeg $\log(N)$ med udtrykker lige fundet:
+\begin{align*}
+    &\gamma_N = \sum_{n=1}^{N} \frac{1}{n} - \log(N)
+    = \sum_{n=1}^{N} \frac{1}{n} - \sum_{n=1}^{N-1} \log(1+ \frac{1}{n}) \\
+    &= \sum_{n=1}^{N} \frac{1}{n} - \sum_{n=1}^{N} \log(1+ \frac{1}{n}) + \log(1 + \frac{1}{N})
+    = \log(1 + \frac{1}{N}) + \sum_{n=1}^{N} \frac{1}{n} - \log(1+ \frac{1}{n})
+\end{align*}
+Vi kan derfor se $\gamma_N$ er en sammensat følge af netop følgen af afsnitssummer 
+for rækken  $\sum_{n=1}^{\infty} \frac{1}{n} - \log(1+ \frac{1}{n})$ 
+og følgen $\{\log(1 + \frac{1}{N}) \}_{N \in \mN}$. Da rækken er konvergent og da
+$\lim_{N \to \infty} \log(1 + \frac{1}{N}) = \log(1) = 0$ 
+må følgen $\{ \gamma_N \}_{N \in \mN}$ også være konvergent per sætning 1.39 \cite{an1}.
+
+\newpage
+\section*{Opgave 4}
+
+\subsection*{a)}
+Som en del af opgave a), fandt jeg ud af at
+\[
+    \frac{x}{(1-x)^2} = \sum_{n=1}^{\infty} nx^{n}
+\]
+med konvergensradius $1$. Vi kan nu bruge at rækken her har $f(x)$ som sumfunktion 
+og med sætning 4.29 må vi kunne konkludere at at 
+\[
+    \frac{f^{(n)}(0)}{n!} = n
+\]
+Hvilket vil sige at $\sum_{n=1}^{\infty} nx^{n}$ er Taylorrækken for $f(x)$. 
+Det er her også essentielt at potensrækker er entydigt bestemt \cite[sætning 4.36]{an1},
+da det entydigt bestemmer at dette er Taylorrækken for $f(x)$.
 
 
-
-%Jeg bemærker nu at da $\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} x^n$, må det gælde at
+\subsection*{b)}
+Fra side 163 \cite{an1} ved vi at $e^x = \sum_{n=0}^{\infty}{\frac{1}{n!}x^n}$ derfor kan vi bruge sætning 4.15 
+til at sige at
+\[
+    e^{2x^2} = \sum_{n=0}^{\infty} \frac{2^n}{n!} x^{2n}
+\]
+for samme konvergensradius (som er $\infty$).
+Dette udtryk kan vi bruge i $g(x)$ og sammen med det bruge observation 4.24 \cite{an1} til at sige følgende
+\begin{align*}
+    &g(x) = \int_{0}^{x} e^{2t^2} dt
+    = \int_{0}^{x} \sum_{n=0}^{\infty} \frac{2^n}{n!} t^{2n} dt
+    = \sum_{n=0}^{\infty} \frac{2^n}{n!} \int_{0}^{x} t^{2n} dt \\
+    &= \sum_{n=0}^{\infty} \frac{2^n}{n!} \lrb{\frac{1}{2n+1} t^{2n+1}}_{0}^x
+    = \sum_{n=0}^{\infty} \frac{2^n}{n!} \frac{1}{2n+1} x^{2n+1} \\
+    &= \sum_{n=0}^{\infty} \frac{2^n}{n!(2n+1)} x^{2n+1}
+    = \sum_{n=1}^{\infty} a_n x^{n}
+\end{align*}
+Hvor vi definerer
+\[
+    a_n = 
+    \begin{cases}
+    0 & \text{når } n \text{ er lige} \\
+    \frac{2^{\floor{n/2}}}{(\floor{n/2})! \cdot n} & \text{når } n \text{ er ulige} \\
+    \end{cases} 
+\]
+da regnereglerne brugt fra sætning 4.23 og 4.15 \cite{an1} garanterer konvergens af rækken må det nødvendigvis
+gælde at rækken er konvergent med $g(x)$ som sumfunktion på hele $\mR$.
+Vi bemærker så at sætning 4.29 siger at det må nødvendigvis gælde at
+\[
+\frac{g^{(n)}(0)}{n!} = a_n
+\]
+og derfor er $\sum_{n=1}^{\infty} a_n x^{n}$ Taylorrækken for $g(x)$.
 
 
 
